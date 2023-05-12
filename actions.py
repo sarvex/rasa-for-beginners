@@ -22,7 +22,7 @@ def create_health_log(confirm_exercise, exercise, sleep, diet, stress, goal):
         "Content-Type": "application/json",
         "Accept": "application/json",
         "Authorization": f"Bearer {airtable_api_key}",
-    }  
+    }
     data = {
         "fields": {
             "Exercised?": confirm_exercise,
@@ -40,9 +40,8 @@ def create_health_log(confirm_exercise, exercise, sleep, diet, stress, goal):
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
         raise SystemExit(err)
-    
+
     return response
-    print(response.status_code)
 
 class HealthForm(FormAction):
 
